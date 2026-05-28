@@ -14,7 +14,7 @@ import {
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const API_DOWNLOAD_URL = 'http://descargas.duck.opik.net:8080/api/download';
+const API_DOWNLOAD_URL = 'http://descargas.duck.opik.net:41010/api/download';
 
 // --- CONFIGURACIÓN EXPRESS ---
 app.use(cors());
@@ -103,9 +103,9 @@ async function startBot() {
                 text: '⏳ *Detecté tu enlace, pariente. Procesando video en 720p, espérame un momento...*' 
             }, { quoted: m });
 
-            const respuesta = await axios.post(API_DOWNLOAD_URL, {
-                videoUrl: urlLimpia
-            });
+const respuesta = await axios.post(API_DOWNLOAD_URL, {
+    videoUrl: urlLimpia
+}, { timeout: 600000 });
 
             if (respuesta.data.success) {
                 const videoLinkDirecto = respuesta.data.downloadUrl;
