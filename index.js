@@ -14,7 +14,7 @@ import {
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const API_DOWNLOAD_URL = 'http://duck.opik.net:41007/api/download';
+const API_DOWNLOAD_URL = 'http://descargas.duck.opik.net:8080/api/download';
 
 // --- CONFIGURACIÓN EXPRESS ---
 app.use(cors());
